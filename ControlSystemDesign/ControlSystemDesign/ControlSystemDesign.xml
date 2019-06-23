@@ -1,0 +1,453 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ControlSystemDesign</name>
+    </assembly>
+    <members>
+        <member name="T:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction">
+            <summary>
+            传递函数模型系统
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.#ctor">
+            <summary>
+            默认构造出来的传递函数矩阵为1*1的单位传递函数，传函为1，即不做任何变换.
+            属于连续系统
+            无时滞
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.#ctor(System.Double[0:,0:,0:],System.Double[0:,0:,0:])">
+            <summary>
+            根据传递函数矩阵中各个元素分子分母从高阶到低阶排列的顺序向量来确定传递函数矩阵的表达式
+            </summary>
+            <param name="den"></param>
+            <param name="num"></param>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.#ctor(System.Double[0:,0:,0:],System.Double[0:,0:,0:],System.Double[0:,0:],System.Double)">
+            <summary>
+            根据传递函数矩阵中各个元素分子分母从高阶到低阶排列的顺序向量 时滞 采样周期 来确定传递函数矩阵的表达式
+            </summary>
+            <param name="den"></param>
+            <param name="num"></param>
+            <param name="timeDelay"></param>
+            <param name="ts"></param>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.IsStable">
+            <summary>
+            判断系统是否稳定的函数，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.GetPole">
+            <summary>
+            获取系统的所有极点，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.GetTimeDelay">
+            <summary>
+            返回系统的时滞系数，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.IsContinous">
+            <summary>
+            判断系统连续或离散，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.GetTs">
+            <summary>
+            获取系统的采样时间，如果是连续系统，返回值为0
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.PrintModel">
+            <summary>
+            打印当前模型的所有信息
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.ParallelConnection(ControlSystemDesign.ControlModel.ControlModel,ControlSystemDesign.ControlModel.ControlModel)">
+            <summary>
+            方法：实现将两个系统进行并联，返回并联之后的系统
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.SeriesConnectioin(ControlSystemDesign.ControlModel.ControlModel,ControlSystemDesign.ControlModel.ControlModel)">
+            <summary>
+            方法：实现将两个系统进行串联，返回串联之后的系统
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction.FeedbackConnection(ControlSystemDesign.ControlModel.ControlModel,ControlSystemDesign.ControlModel.ControlModel,System.Boolean)">
+            <summary>
+            方法：实现将两个系统进行反馈连接，返回之后得到的系统
+            其中：a为正向通道系统模型，b为反向通道系统模型，isPositive检测是否为正反馈
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="isPositive"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ControlSystemDesign.ControlModel.ControlModel">
+            <summary>
+            控制系统模型
+            这个是广义上的控制系统模型，在该模型下，需要满足最基本的控制系统的要求
+            该类是两个类的基类，对应的派生类为传递函数模型类和状态空间模型类
+            本系统并不能用来实例化对象，事实上用其来实例化对象也毫无用处
+                                        LiangZid 2019.6.20
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ControlModel.IsStable">
+            <summary>
+            判断系统是否稳定的函数，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ControlModel.GetPole">
+            <summary>
+            获取系统的所有极点，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ControlModel.GetTimeDelay">
+            <summary>
+            返回系统的时滞系数，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ControlModel.IsContinous">
+            <summary>
+            判断系统连续或离散，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ControlModel.GetTs">
+            <summary>
+            获取系统的采样时间，如果是连续系统，返回值为0
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ControlModel.ParallelConnection(ControlSystemDesign.ControlModel.ControlModel,ControlSystemDesign.ControlModel.ControlModel)">
+            <summary>
+            方法：实现将两个系统进行并联，返回并联之后的系统
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ControlModel.SeriesConnectioin(ControlSystemDesign.ControlModel.ControlModel,ControlSystemDesign.ControlModel.ControlModel)">
+            <summary>
+            方法：实现将两个系统进行串联，返回串联之后的系统
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ControlModel.FeedbackConnection(ControlSystemDesign.ControlModel.ControlModel,ControlSystemDesign.ControlModel.ControlModel,System.Boolean)">
+            <summary>
+            方法：实现将两个系统进行反馈连接，返回之后得到的系统
+            其中：a为正向通道系统模型，b为反向通道系统模型，isPositive检测是否为正反馈
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="isPositive"></param>
+            <returns></returns>
+        </member>
+        <member name="F:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.A">
+            该系统的ss模型为：
+            diff(x)=A*x+B*u;
+            y=C*x+D*u;
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.#ctor">
+            <summary>
+            什么也没有，这个就是用来初始化各个抽象矩阵以表明这是个状态方程类型的变量
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.#ctor(MathNet.Numerics.LinearAlgebra.Matrix{System.Double})">
+            <summary>
+            自治系统，x用来初始化A
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.#ctor(MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Matrix{System.Double})">
+            <summary>
+            初始化所有参数，直接进行。
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+            <param name="d"></param>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.#ctor(MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Matrix{System.Double},System.Double,System.Double)">
+            <summary>
+            史上最全的构造函数，初始化了全部参数，直接进行
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+            <param name="d"></param>
+            <param name="timeDelay"></param>
+            <param name="ts"></param>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.#ctor(MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Matrix{System.Double})">
+            <summary>
+            构造函数其中一种，默认直接传递项为0
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.#ctor(ControlSystemDesign.ControlModel.ClassicalControl.TransferFunction)">
+            <summary>
+            传递函数模型转化为状态空间模型
+            </summary>
+            <param name="a"></param>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.IsStable">
+            <summary>
+            判断系统是否稳定的函数，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.GetPole">
+            <summary>
+            获取系统的所有极点，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.GetTimeDelay">
+            <summary>
+            返回系统的时滞系数，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.IsContinous">
+            <summary>
+            判断系统连续或离散，必须被描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.GetTs">
+            <summary>
+            获取系统的采样时间，如果是连续系统，返回值为0
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.PrintModel">
+            <summary>
+            用来输出或者打印状态方程信息
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.ParallelConnection(ControlSystemDesign.ControlModel.ControlModel,ControlSystemDesign.ControlModel.ControlModel)">
+            <summary>
+            方法：实现将两个系统进行并联，返回并联之后的系统
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.SeriesConnectioin(ControlSystemDesign.ControlModel.ControlModel,ControlSystemDesign.ControlModel.ControlModel)">
+            <summary>
+            方法：实现将两个系统进行串联，返回串联之后的系统
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.FeedbackConnection(ControlSystemDesign.ControlModel.ControlModel,ControlSystemDesign.ControlModel.ControlModel,System.Boolean)">
+            <summary>
+            方法：实现将两个系统进行反馈连接，返回之后得到的系统
+            其中：a为正向通道系统模型，b为反向通道系统模型，isPositive检测是否为正反馈
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="isPositive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.GetPBHOfQc(MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Matrix{System.Double},System.Int32)">
+            <summary>
+            私有方法，用来得到能控标准型矩阵
+            </summary>
+            <param name="A"></param>
+            <param name="B"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.IsControllable">
+            <summary>
+            布尔变量，返回一个状态模型是否能控
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.GetPBHOfQo(MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Matrix{System.Double},System.Int32)">
+            <summary>
+            得到秩判据中的状态观测增广矩阵
+            </summary>
+            <param name="A"></param>
+            <param name="C"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.IsObservable">
+            <summary>
+            布尔变量，返回一个状态模型是否可观测
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.ModernControl.StatementSpace.TransformWithP_ReversibleStateMentModel(MathNet.Numerics.LinearAlgebra.Matrix{System.Double})">
+            <summary>
+            对输入向量x经过可逆变换P之后得到新的状态模型
+            </summary>
+            <param name="P"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ControlSystemDesign.ControlModel.Self.ExceptionSelf.NotTheSameModelException">
+            <summary>
+            当两个模型特性不一导致无法进行结合操作时需要抛出的异常
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.Self.ExceptionSelf.NotTheSameModelException.#ctor">
+            <summary>
+            使用默认的构造函数即可
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.Self.ExceptionSelf.NotTheSameModelException.#ctor(System.String)">
+            <summary>
+            私用默认的构造函数即可
+            </summary>
+            <param name="s"></param>
+        </member>
+        <member name="T:ControlSystemDesign.ControlModel.Self.ExceptionSelf.MatrixNotTheSameRowCol">
+            <summary>
+            当两个矩阵的行数和列数不匹配（比如矩阵相乘左边的列数不等于右边的行数）时抛出此错误
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.Self.ExceptionSelf.MatrixNotTheSameRowCol.#ctor">
+            <summary>
+            默认构造函数方式
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.Self.ExceptionSelf.MatrixNotTheSameRowCol.#ctor(System.String)">
+            <summary>
+            默认构造函数方式
+            </summary>
+            <param name="s"></param>
+        </member>
+        <member name="T:ControlSystemDesign.ControlModel.Self.ExceptionSelf.WrongInputArgument">
+            <summary>
+            输入参数格式或者范围错误异常
+            </summary>
+        </member>
+        <member name="T:ControlSystemDesign.ControlModel.Self.ExceptionSelf.WrongInputMatrix">
+            <summary>
+            错误的输入矩阵格式
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SelfTools.ToolSelf.MatrixZengGuang(MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Matrix{System.Double},System.Int32)">
+            <summary>
+            自己写的小工具，用来实现增广矩阵的功能，此处的函数只支持double型数据
+            axis==0为横向增广，axis==1为纵向增广
+            </summary>
+            <param name="matrix1"></param>
+            <param name="matrix2"></param>
+            <param name="axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SelfTools.ToolSelf.PowerSelf(MathNet.Numerics.LinearAlgebra.Matrix{System.Double},System.Int32)">
+            <summary>
+            方阵的乘方运算
+            </summary>
+            <param name="A"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ControlSystemDesign.ControlModel.SimuControl.ISimu">
+            <summary>
+            接口类型，用来描述输入和输出特征
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SimuControl.ISimu.GetInfo">
+            <summary>
+            返回目标输入输出的信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SimuControl.ISimu.GetValue">
+            <summary>
+            得到目标地方的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SimuControl.ISimu.GetModel">
+            <summary>
+            返回对应的模型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SimuControl.ISimu.GetMainTag">
+            <summary>
+            返回每个子模块独一无二的tag
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SimuControl.ISimu.GetSubTags">
+            <summary>
+            获取每个模块中输入输出对应的接口标签名字，在同一个模块中输出输入的标签名字都是确定的
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ControlSystemDesign.ControlModel.SimuControl.LinkSimu">
+            <summary>
+            用来描述线条之间（抑或说模型之间的连接关系）
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SimuControl.SimuModel.#ctor">
+            <summary>
+            默认构造函数，生成一个空SimuModel模型
+            </summary>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SimuControl.SimuModel.#ctor(System.Double,System.Double,System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            简单的单输入单输出且均为double类型时的构造函数构造
+            </summary>
+            <param name="input"></param>
+            <param name="output"></param>
+            <param name="submodules"></param>
+            <param name="link"></param>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SimuControl.SimuModel.#ctor(System.Collections.ArrayList,System.Collections.ArrayList,System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            最寻常的构造函数初始化过程
+            </summary>
+            <param name="input"></param>
+            <param name="output"></param>
+            <param name="submodeules"></param>
+            <param name="link"></param>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SimuControl.SimuModel.#ctor(System.String)">
+            <summary>
+            通过加载一个已经存储的SimuModel来实现构造函数初始化
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:ControlSystemDesign.ControlModel.SimuControl.SimuModel.load(System.String)">
+            <summary>
+            返回加载的模型
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ControlSystemDesign.ControlModel.SimuControl.SubSimuModel">
+            <summary>
+            simuControl中对子模块进行描述的类
+            子模块的类仅仅支持输入和输出运算，对模型类下的一些功能进行了抽象
+            
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlSystemDesign", "ControlSystemDesign.csproj", "{0ADBA151-C0B1-4229-9503-CA378EF4430D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Algorithm", "..\Algorithm\Algorithm.vcxitems", "{07A63ABF-1365-4C95-B065-F5852FED3595}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0ADBA151-C0B1-4229-9503-CA378EF4430D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ADBA151-C0B1-4229-9503-CA378EF4430D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ADBA151-C0B1-4229-9503-CA378EF4430D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ADBA151-C0B1-4229-9503-CA378EF4430D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9663222E-514B-4C67-8E97-21F6157DCA5B}
+	EndGlobalSection
+EndGlobal

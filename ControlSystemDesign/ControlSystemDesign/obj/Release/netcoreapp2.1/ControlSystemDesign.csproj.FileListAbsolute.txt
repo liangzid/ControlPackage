@@ -1,0 +1,13 @@
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\bin\Release\netcoreapp2.1\ControlSystemDesign.deps.json
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\bin\Release\netcoreapp2.1\ControlSystemDesign.runtimeconfig.json
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\bin\Release\netcoreapp2.1\ControlSystemDesign.runtimeconfig.dev.json
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\bin\Release\netcoreapp2.1\ControlSystemDesign.dll
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\bin\Release\netcoreapp2.1\ControlSystemDesign.pdb
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\obj\Release\netcoreapp2.1\ControlSystemDesign.csproj.CoreCompileInputs.cache
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\obj\Release\netcoreapp2.1\ControlSystemDesign.AssemblyInfoInputs.cache
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\obj\Release\netcoreapp2.1\ControlSystemDesign.AssemblyInfo.cs
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\obj\Release\netcoreapp2.1\ControlSystemDesign.dll
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\obj\Release\netcoreapp2.1\ControlSystemDesign.pdb
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\obj\Release\netcoreapp2.1\ControlSystemDesign.csprojAssemblyReference.cache
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\obj\Release\netcoreapp2.1\ControlSystemDesign.Properties.Resources.resources
+D:\allDataForWindows\document\HomeWork\ControlSystemDesign\ControlSystemDesign\obj\Release\netcoreapp2.1\ControlSystemDesign.csproj.GenerateResource.cache
